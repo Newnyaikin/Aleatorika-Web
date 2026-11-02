@@ -1,0 +1,437 @@
+:root {
+  --bg: #f7f8fa;
+  --surface: #fff;
+  --soft: #f0f3f6;
+  --line: #e7ebef;
+  --border: #e7ebef;
+  --accent: #3979a9;
+  --muted: #66717b;
+  --text: #26323c;
+}
+body {
+  background: var(--bg);
+  background-image: none;
+}
+.training,
+.setup-controls,
+.experience-button,
+.stat {
+  box-shadow: none !important;
+  border-color: var(--line) !important;
+}
+.training {
+  border-radius: 18px;
+  min-height: 0 !important;
+}
+.training::before {
+  display: none;
+}
+.training .description,
+.training .ear-description,
+.training .race-subtitle,
+.training .race-caption,
+.training .ear-board-legend,
+.training .diagram-legend,
+.training .sight-menu-note,
+.training .sight-footnote,
+.training .micro-copy,
+.training .settings-note,
+.training .ear-menu-note,
+.training .ear-scroll-hint,
+.training .ear-badge,
+.training .race-rules,
+.training .sight-menu-facts,
+.training .phase-label,
+.training .sight-prompt {
+  display: none !important;
+}
+#footerTip,
+.sidebar,
+.progress,
+.setup-controls .control-caption,
+.experience-button small {
+  display: none !important;
+}
+.workspace {
+  display: block !important;
+}
+.practice {
+  max-width: 800px;
+  margin-inline: auto;
+}
+.setup-controls {
+  padding: 8px !important;
+  border-radius: 16px;
+  background: var(--surface);
+  margin-bottom: 20px;
+}
+.setup-controls > div {
+  gap: 0;
+}
+.setup-controls .practice-top,
+.setup-controls .segmented {
+  width: 100%;
+}
+.setup-controls .segmented,
+.pace-buttons,
+.sight-shape-filter {
+  border-radius: 12px;
+  background: var(--soft);
+  border: 0;
+}
+.setup-controls button,
+.pace-button,
+.sight-shape-filter button {
+  border-radius: 9px !important;
+  border-color: transparent !important;
+}
+.sight-shape-filter button[aria-pressed="true"] {
+  border-color: transparent;
+  background: var(--surface);
+  color: var(--accent);
+}
+.minimal-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 20px;
+  width: 100%;
+}
+.minimal-title-row h2 {
+  flex: 1;
+  min-width: 0;
+  margin: 6px 0 0 !important;
+  font-size: 26px !important;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  text-align: left;
+}
+.help-trigger {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--soft);
+  color: var(--muted);
+  font: 600 19px system-ui;
+  cursor: pointer;
+}
+.button,
+.icon-btn,
+.session-back,
+.session-pause {
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+.button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.button.secondary {
+  border-color: var(--line);
+  background: var(--surface);
+}
+.ear-content,
+.race-content,
+.sight-content,
+.content {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+.training .micro-box {
+  border: 0 !important;
+  border-radius: 14px;
+  background: var(--soft);
+  padding: 16px;
+  margin: 16px 0 !important;
+}
+.training .micro-box.matched {
+  background: color-mix(in srgb, var(--green) 9%, var(--surface));
+}
+.training .micro-title {
+  font-size: 15px;
+  font-weight: 500;
+  min-height: 22px;
+}
+.training .mic-meter small {
+  display: none;
+}
+.training .unified-learning #replaySound {
+  margin-top: 0;
+}
+.training #manualPlay {
+  margin-top: 0;
+  color: var(--muted);
+  border: 0;
+  background: transparent;
+}
+.training .sight-diagram {
+  background: var(--soft);
+  border: 0;
+  border-radius: 14px;
+  margin-top: 16px;
+}
+.sight-level {
+  height: 4px;
+}
+.sight-status {
+  margin: 18px 0;
+}
+.ear-chord-choice,
+.answer {
+  border-color: var(--line);
+  border-radius: 14px;
+  box-shadow: none;
+}
+body.flash-right,
+body.flash-wrong {
+  background: var(--bg) !important;
+}
+.flash-right .training,
+.flash-wrong .training {
+  background: var(--surface) !important;
+  border-color: var(--line) !important;
+  box-shadow: none !important;
+}
+.quick-help {
+  width: min(520px, calc(100vw - 32px));
+  max-height: calc(100dvh - 48px);
+  box-sizing: border-box;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 16px 60px #0002;
+}
+.quick-help::backdrop {
+  background: #18243155;
+  backdrop-filter: blur(5px);
+}
+.help-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.help-top h2 {
+  margin: 0;
+  font-size: 24px;
+}
+#quickHelpBody p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 18px 0;
+}
+#gotQuickHelp {
+  width: 100%;
+  margin-top: 8px;
+}
+@media (min-width: 761px) {
+  .layout {
+    display: block !important;
+  }
+  .shell {
+    max-width: 880px;
+  }
+  .experience-switch {
+    margin-bottom: 20px;
+  }
+  .practice {
+    width: 100%;
+  }
+}
+@media (max-width: 760px) {
+  .shell {
+    padding: 16px 16px calc(96px + env(safe-area-inset-bottom)) !important;
+  }
+  .setup-controls {
+    gap: 8px;
+  }
+  .setup-controls .material-control,
+  .setup-controls .pace-control {
+    display: block;
+    width: 100%;
+  }
+  .training .ear-content,
+  .training .race-content,
+  .training .sight-content,
+  .training .content {
+    padding: 20px;
+  }
+  .minimal-title-row h2 {
+    font-size: 25px !important;
+  }
+  .experience-switch {
+    border-color: var(--line);
+    box-shadow: none;
+  }
+  .experience-button {
+    border-radius: 14px !important;
+  }
+  .experience-button[aria-pressed="true"] {
+    background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+    border-color: transparent !important;
+  }
+  .sight-playing .shell {
+    padding: 12px 12px calc(96px + env(safe-area-inset-bottom)) !important;
+  }
+  .sight-playing .sight-live {
+    padding: 16px;
+  }
+  .sight-live .minimal-title-row {
+    margin: 12px 0 4px;
+  }
+  .sight-live .minimal-title-row h2 {
+    font-size: 24px !important;
+  }
+}
+html[data-theme="dark"] {
+  --bg: #181e25;
+  --surface: #202831;
+  --soft: #2a333e;
+  --line: #35414c;
+  --border: #35414c;
+  --accent: #95bde5;
+  --muted: #b0bbc6;
+  --text: #edf2f7;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --bg: #181e25;
+    --surface: #202831;
+    --soft: #2a333e;
+    --line: #35414c;
+    --border: #35414c;
+    --accent: #95bde5;
+    --muted: #b0bbc6;
+    --text: #edf2f7;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .quick-help::backdrop {
+    backdrop-filter: none;
+  }
+}
+.layout>aside,#progress{display:none!important}
+.setup-controls .button-glyph svg{display:block}
+/* Calm blue–lavender gradients and a single aligned toolbar. */
+:root{--accent:#326c98}
+body{background:radial-gradient(ellipse at 8% 0%,#e8f3fb 0,transparent 47%),radial-gradient(ellipse at 100% 100%,#eeecf8 0,transparent 55%),var(--bg);background-attachment:fixed}
+.training{background:linear-gradient(145deg,var(--surface),color-mix(in srgb,var(--surface) 95%,var(--accent)))!important}
+.button.primary{background:linear-gradient(115deg,#397ba9,#526fb2);border:0;color:#fff}
+.setup-controls{background:linear-gradient(145deg,var(--surface),color-mix(in srgb,var(--surface) 97%,var(--accent)))}
+.experience-button[aria-pressed=true]{background:linear-gradient(135deg,#e6f3fb,#eeedf9)!important;color:var(--accent)}
+.header-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex:none}
+.header-actions .icon-btn{display:grid;place-items:center;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;margin:0;border:1px solid var(--line);border-radius:14px!important;background:linear-gradient(145deg,var(--surface),var(--soft));box-sizing:border-box;line-height:1;color:var(--text)}
+.header-actions .icon-btn svg{display:block;width:23px;height:23px;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.button-glyph svg,.activity-icon svg,.activity-icon svg path{stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.minimal-title-row{margin-bottom:20px}.minimal-title-row h2{margin-top:0!important}
+.mode-record{display:flex;align-items:center;gap:10px;padding:14px 16px;margin:0 0 16px;border-radius:13px;background:linear-gradient(110deg,var(--soft),color-mix(in srgb,var(--accent) 9%,var(--surface)));color:var(--muted);font-size:15px;line-height:1.3}
+.mode-record svg{color:var(--accent);flex:none}.mode-record strong{margin-left:auto;color:var(--text);font-size:22px;font-variant-numeric:tabular-nums;line-height:1}
+.sight-record-result{color:var(--muted);margin:0 0 20px;font-size:15px}
+.quick-help{padding:24px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,var(--surface),color-mix(in srgb,var(--surface) 94%,var(--accent)));box-shadow:0 12px 48px #15213626}
+.help-top{align-items:center;gap:12px;margin-bottom:4px}.help-top h2{font-weight:650;letter-spacing:-.4px}
+#closeQuickHelp{width:44px;height:44px;min-height:44px;flex:none;padding:0;display:grid;place-items:center;background:var(--soft);border:0;border-radius:14px;font-size:24px;font-weight:400;color:var(--muted)}
+.quick-help #gotQuickHelp{min-height:50px;border-radius:13px!important}
+@media(max-width:760px){header{gap:8px}.brand{gap:8px;min-width:0}.brandmark{width:36px;height:36px;flex:none}.brandname{font-size:19px}.experience-switch{background:linear-gradient(180deg,var(--surface),var(--soft))}.header-actions{gap:6px}}
+@media(max-width:359px){.header-actions{gap:5px}.header-actions .icon-btn{width:44px;height:44px;min-width:44px}.brandmark{width:32px;height:32px}.brandname{font-size:16px;letter-spacing:-.3px}.brand{gap:6px}}
+html[data-theme=dark] body{background:radial-gradient(ellipse at 4% 0%,#24364a 0,transparent 55%),radial-gradient(ellipse at 100% 100%,#29283d 0,transparent 55%),var(--bg)}
+html[data-theme=dark] .button.primary{background:linear-gradient(115deg,#9ec6e9,#b8b3e9);color:#182e43}
+html[data-theme=dark] .experience-button[aria-pressed=true]{background:linear-gradient(135deg,#253b50,#34334c)!important}
+@media(prefers-color-scheme:dark){html:not([data-theme=light]) body{background:radial-gradient(ellipse at 4% 0%,#24364a 0,transparent 55%),var(--bg)}html:not([data-theme=light]) .button.primary{background:linear-gradient(115deg,#9ec6e9,#b8b3e9);color:#182e43}html:not([data-theme=light]) .experience-button[aria-pressed=true]{background:linear-gradient(135deg,#253b50,#34334c)!important}}
+
+/* Local Cyrillic-capable Manrope: consistent baselines in labels and controls. */
+@font-face{font-family:Manrope;src:url('./fonts/manrope.ttf') format('truetype');font-style:normal;font-weight:200 800;font-display:swap}
+body,button,input,select,textarea{font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif}
+.brandname{font-family:Manrope,system-ui,sans-serif;font-weight:800;letter-spacing:-.055em;line-height:1.2}
+h2,h3,.quick-help h2{font-family:Manrope,system-ui,sans-serif;font-weight:750;letter-spacing:-.035em;line-height:1.28}
+button{line-height:1.3}.segmented button,.experience-button{display:flex;align-items:center;justify-content:center;gap:8px}
+.experience-button{flex-direction:column;gap:6px}.experience-button .activity-icon{display:grid;place-items:center;height:26px;line-height:1}
+.header-actions .icon-btn{flex-shrink:0}.brand{display:flex;align-items:center}.header-actions{align-self:center}
+.button-glyph{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;flex:none}
+.race-stats,.sight-stats,.ear-stats{align-items:start}
+.race-stats strong,.sight-stats strong,.ear-stats strong,.stat-value{font-variant-numeric:tabular-nums;line-height:1.25}
+.help-top h2{margin:0;line-height:1.25}#quickHelpBody p{font-size:15px;line-height:1.65;margin:16px 0}
+@media(max-width:359px){.shell{padding-left:12px!important;padding-right:12px!important}.brandname{font-size:16px!important}.setup-controls button{font-size:13px;min-height:48px}.quick-help{padding:20px}}
+.quick-help[open]{display:flex;flex-direction:column;gap:16px;overflow:hidden}
+.quick-help .help-top,.quick-help #gotQuickHelp{flex-shrink:0}
+#quickHelpBody{overflow-y:auto;min-height:0;overscroll-behavior:contain}
+#quickHelpBody p:first-child{margin-top:0}#quickHelpBody p:last-child{margin-bottom:0}
+
+.header-actions .icon-btn.mic-session-on{color:var(--green);border-color:color-mix(in srgb,var(--green) 40%,var(--line));background:linear-gradient(145deg,var(--surface),color-mix(in srgb,var(--green) 10%,var(--surface)))}
+
+html{background:var(--bg)}body{min-height:100vh;min-height:100dvh;background-repeat:no-repeat}
+
+/* Navigation repair: bounded SVG paths and one quiet, consistent bottom rail. */
+.experience-switch .activity-icon{width:32px;height:32px;flex:0 0 32px;overflow:visible;color:inherit}
+.experience-switch .activity-icon svg{display:block;width:24px;height:24px;overflow:visible;flex:none}
+.experience-switch .experience-button{color:var(--muted)}
+.experience-switch .experience-button[aria-pressed=true]{color:var(--accent)}
+@media(max-width:760px){
+ :root{--mobile-nav-active:#E5F2FC}
+ html[data-theme=dark]{--mobile-nav-active:#293C50}
+ .experience-switch,.sight-playing .experience-switch{
+  gap:6px!important;padding:8px 12px calc(8px + env(safe-area-inset-bottom))!important;
+  background:var(--surface)!important;border-top:1px solid var(--line)!important;box-shadow:none!important;
+ }
+ html .experience-switch .experience-button,html .experience-switch .experience-button:hover{
+  min-height:56px!important;padding:6px 4px!important;margin:0!important;
+  background:var(--surface)!important;color:var(--muted);border:0!important;border-radius:12px!important;
+  box-shadow:none!important;gap:4px!important;transform:none!important;
+ }
+ html .experience-switch .experience-button[aria-pressed=true]{background:var(--mobile-nav-active)!important;color:var(--accent)}
+ .experience-switch .experience-button:before,.experience-switch .experience-button:after{display:none!important}
+ .experience-switch .activity-icon{width:28px!important;height:24px!important;flex:0 0 24px!important;border-radius:0;background:transparent!important;color:inherit}
+ .experience-switch .experience-button strong{color:inherit;font-size:13px!important;font-weight:650;line-height:18px!important;white-space:nowrap;letter-spacing:0}
+ .experience-switch .experience-button svg{width:24px!important;height:24px!important;stroke-width:2.3}
+ .experience-switch .experience-button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+}
+@media(max-width:760px) and (prefers-color-scheme:dark){html:not([data-theme=light]){--mobile-nav-active:#293C50}}
+
+.learning-session .shell>header{display:none!important}
+.learning-toolbar{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.learning-toolbar>span{flex:1;text-align:center;color:var(--muted);font-size:13px;min-width:0}
+.learning-toolbar .session-back{min-height:44px;padding:8px 12px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:14px;white-space:nowrap}
+.learning-toolbar .icon-btn{display:grid;place-items:center;padding:0;width:44px;height:44px;min-width:44px;min-height:44px;border:1px solid var(--line);background:var(--soft);color:var(--text);border-radius:14px!important}
+.learning-toolbar svg{width:22px;height:22px;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:359px){.learning-toolbar{gap:6px}.learning-toolbar>span{font-size:12px}.learning-toolbar .session-back{padding:8px;font-size:13px}.unified-learning.content{padding:16px!important}}
+
+/* One spacing rhythm for every web menu; hidden progress must take no space. */
+#practice{display:flex;flex-direction:column;gap:20px}
+#practice>.experience-switch,#practice>#setupControls,#practice>#training{margin:0}
+#practice>#progress{display:none!important;height:0!important;margin:0!important;padding:0!important}
+#training>.ear-content,#training>.race-content,#training>.sight-content:not(.sight-live),#training>.content{width:100%;max-width:none;margin:0;padding:24px 32px}
+@media(min-width:761px){.shell>header{margin-bottom:20px}}
+@media(max-width:760px){#practice{gap:16px}#training>.ear-content,#training>.race-content,#training>.sight-content:not(.sight-live),#training>.content{padding:20px}}
+
+/* Consistent selectors, session controls and settings surface. */
+.ear-menu-fields { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.range-native { position:absolute; width:1px; height:1px; padding:0; border:0; clip-path:inset(50%); overflow:hidden; }
+.fret-range-filter { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; padding:4px; background:var(--soft); border-radius:12px; }
+.fret-range-filter button { min-width:0; min-height:48px; border:0; border-radius:9px; background:transparent; color:var(--muted); font: inherit; font-size:14px; font-weight:600; cursor:pointer; }
+.fret-range-filter button[aria-pressed="true"] { background:var(--surface); color:var(--accent); }
+.fret-range-filter button:focus-visible, .sight-shape-filter button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.common-session-bar { margin: 0 0 16px; padding: 16px 20px 0; }
+#settings { box-sizing:border-box; background:var(--surface); color:var(--text); border:1px solid var(--line); border-radius:18px; padding:24px; }
+#settings .dialog-header { padding-bottom:16px; border-bottom:1px solid var(--line); }
+#settings .dialog-header h2 { color:var(--text); font-size:24px; }
+#settings .icon-btn { width:44px; height:44px; background:var(--soft); color:var(--muted); border:0; }
+#settings label { color:var(--text); font-size:14px; }
+#settings select { background:var(--soft); color:var(--text); border:1px solid var(--line); border-radius:12px; }
+#settings .settings-info { color:var(--muted); }
+#settings .settings-info strong { color:var(--text); }
+#settings #saveSettings { margin-top:8px; }
+@media (max-width:359px) { .sight-shape-filter { gap:2px; } .sight-shape-filter button { padding:6px 2px; font-size:12px; } .common-session-bar { padding-inline:12px; } }
+/* The full-screen fretboard already has its own back bar. */
+.fret-focused .common-session-bar { display:none !important; }
+
+/* The same compact session layout in each activity; settings stay in menus. */
+body:has(#training .sight-topbar) .shell > header,
+body:has(#training .sight-topbar) #setupControls,
+body.learning-session #setupControls { display:none !important; }

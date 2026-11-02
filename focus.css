@@ -1,0 +1,24 @@
+.fret-focus-bar{display:none}.fret-focus-launch{min-height:44px;margin:0 0 10px;border:1px solid var(--control-border);border-radius:6px;padding:8px 12px;background:var(--surface);color:var(--accent);font-size:14px;font-weight:600}
+body.fret-focused{overflow:hidden;overscroll-behavior:none}
+.fret-focused .training{position:fixed;inset:0;z-index:40;margin:0;width:100%;height:100vh;height:100dvh;max-width:none;border:0;border-radius:0;background:var(--bg);box-shadow:none;overflow:hidden}
+.fret-focused .ear-hud,.fret-focused .ear-question>h2,.fret-focused .ear-toolbar,.fret-focused .ear-board-legend,.fret-focused .ear-scroll-hint,.fret-focused .ear-bottom-actions,.fret-focused .fret-focus-launch{display:none!important}
+.fret-focused .ear-question{height:100%;width:100%;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:12px;padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
+.fret-focused .fret-focus-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-shrink:0}
+.fret-focus-back{min-width:100px;min-height:44px;background:var(--surface);color:var(--ink);border:1px solid var(--control-border);border-radius:8px;padding:8px 14px;display:flex;gap:10px;align-items:center;font-weight:600}
+.fret-focus-meta{font-size:14px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.fret-focused .ear-board-viewport{order:1;min-height:0;flex:1;max-height:none;margin:0;width:100%;border-radius:10px;scroll-behavior:auto}
+.fret-focused .ear-board.vertical{width:min(100%,440px);grid-template-columns:28px repeat(6,minmax(44px,1fr))}
+.fret-focused .ear-board.horizontal{margin:0 auto;position:relative;top:50%;transform:translateY(-50%)}
+.fret-focused .ear-status{order:2;flex-shrink:0;padding:0;min-height:0;margin:0 auto;max-width:680px;width:100%;font-size:14px;line-height:1.4}
+.fret-focused .ear-status:not(.good):not(.error){display:none}
+.fret-focused .ear-status strong{font-size:16px;margin-bottom:2px}
+.fret-focused .ear-repeat,.fret-focused .ear-next{order:3;flex-shrink:0;margin:0 auto;width:100%;max-width:680px;min-height:52px}
+.fret-focused .focus-replay-answered{display:none}
+.fret-focused.flash-right .training{background:var(--green-bg)}.fret-focused.flash-wrong .training{background:var(--red-bg)}
+@media(max-height:500px){.fret-focused .ear-question{gap:8px;padding:8px 12px}.fret-focused .ear-status p{max-height:40px;overflow:auto}.fret-focused .ear-repeat,.fret-focused .ear-next{min-height:44px}}
+.answer strong{font-size:21px;line-height:1.25;overflow-wrap:normal}
+@media(max-width:359px){.answer strong{font-size:19px}}
+.answer{padding-left:8px;padding-right:8px}.answer strong{font-size:20px}
+@media(max-width:359px){.answer{padding-left:4px;padding-right:4px}.answer strong{font-size:17px}}
+.answer strong{font-size:clamp(16px,4.5vw,20px);white-space:nowrap}
+.fret-attempt-meta{display:block;margin-top:3px;font-size:14px}.ear-attempt-count{font-size:14px;color:var(--muted);margin:0 0 12px}.fret-focused .ear-attempt-count{display:none}.fret-focus-meta{text-align:right;line-height:1.3}

@@ -1,0 +1,1100 @@
+/* Aleatorika 1.0 — instrument-first UI, quiet motion and stable navigation. */
+html {
+  scrollbar-gutter: stable;
+  scroll-behavior: auto;
+  overflow-anchor: none;
+}
+body {
+  background-image: radial-gradient(
+    ellipse at 80% 0%,
+    color-mix(in srgb, var(--accent) 6%, transparent),
+    transparent 58%
+  );
+  background-attachment: fixed;
+}
+.shell {
+  max-width: 1120px;
+}
+header {
+  align-items: center;
+}
+.brandmark {
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+.experience-switch {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 5px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  isolation: isolate;
+}
+.experience-switch:after {
+  display: none;
+}
+.experience-button {
+  font-size: 14px;
+  padding: 10px 8px;
+  min-height: 48px;
+  border: 0;
+  border-radius: 8px;
+  line-height: 1.3;
+  z-index: 1;
+}
+.experience-button[aria-pressed="true"] {
+  background: var(--tint);
+  color: var(--accent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.experience-button:hover:not([aria-pressed="true"]) {
+  background: var(--soft);
+}
+.training {
+  min-height: 520px;
+  box-shadow:
+    0 2px 4px #00000003,
+    0 14px 48px #00000005;
+  position: relative;
+}
+.training:before {
+  content: "";
+  position: absolute;
+  inset: 0 20% auto;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.45;
+  pointer-events: none;
+}
+.content,
+.ear-content,
+.race-content {
+  padding: 32px;
+}
+.content h2,
+.ear-content h2,
+.race-content h2 {
+  letter-spacing: -0.8px;
+  line-height: 1.2;
+}
+.button.primary {
+  box-shadow: 0 3px 8px color-mix(in srgb, var(--accent) 15%, transparent);
+  position: relative;
+  overflow: hidden;
+}
+.button.primary:after {
+  content: "";
+  position: absolute;
+  inset: -100% -50%;
+  background: linear-gradient(
+    110deg,
+    transparent 45%,
+    #ffffff17 50%,
+    transparent 55%
+  );
+  transform: translateX(-65%);
+  transition: transform 0.6s;
+}
+.button.primary:hover:after {
+  transform: translateX(65%);
+}
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+.button.primary:hover {
+  filter: brightness(1.06);
+}
+.micro-box {
+  background: var(--soft);
+  border: 1px solid var(--line);
+}
+.step-num {
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.answers {
+  gap: 8px;
+}
+.answer {
+  border-radius: 10px;
+}
+.answer:hover:not(:disabled) {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+.voicing-library {
+  margin: 24px 0;
+}
+.voicing-library h3 {
+  font-size: 17px;
+  letter-spacing: -0.3px;
+  margin: 0 0 12px;
+}
+.voicing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.voicing-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 6px;
+  background: var(--bg);
+  text-align: center;
+  min-width: 0;
+}
+.voicing-card .diagram {
+  width: 100%;
+  height: auto;
+  max-width: 130px;
+  display: block;
+  margin: 0 auto 8px;
+}
+.voicing-card span {
+  font-size: 14px;
+  color: var(--muted);
+}
+.sight-content {
+  padding: 32px;
+  max-width: 720px;
+  margin: auto;
+}
+.sight-content h2 {
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+  margin: 12px 0;
+}
+.sight-symbol {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  background: var(--tint);
+  color: var(--accent);
+  font-size: 38px;
+  border-radius: 16px;
+  margin: 24px 0;
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--tint) 40%, transparent);
+}
+.sight-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.sight-steps span {
+  padding: 8px 10px;
+  background: var(--soft);
+  border-radius: 6px;
+}
+.sight-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.sight-diagram {
+  display: flex;
+  justify-content: center;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px 0 8px;
+}
+.sight-diagram svg {
+  width: 184px;
+  height: auto;
+  max-height: 230px;
+}
+.diagram-legend {
+  font-size: 14px;
+  text-align: center;
+  color: var(--muted);
+  margin: 8px 0 20px;
+}
+.sight-level {
+  height: 6px;
+  background: var(--soft);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.sight-level span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.08s linear;
+}
+.sight-status {
+  min-height: 48px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+  font-size: 16px;
+}
+.sight-status.good {
+  color: var(--green);
+  font-weight: 600;
+  animation: success-glow 0.5s ease-out;
+}
+.sight-actions {
+  display: grid;
+  gap: 8px;
+}
+.sight-actions button {
+  margin: 0;
+  min-height: 48px;
+}
+.sight-result {
+  font-size: 72px;
+  line-height: 1.2;
+  color: var(--accent);
+  font-weight: 700;
+  margin: 24px 0;
+}
+.sight-result span {
+  font-size: 28px;
+  color: var(--muted);
+}
+@keyframes success-glow {
+  from {
+    background: var(--green-bg);
+    box-shadow: 0 0 0 8px var(--green-bg);
+  }
+  to {
+    background: transparent;
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+@media (max-width: 760px) {
+  .shell {
+    padding: 20px 16px !important;
+  }
+  .shell > header {
+    margin-bottom: 24px !important;
+  }
+  .practice {
+    margin-top: 0 !important;
+  }
+  .experience-switch {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 20px;
+  }
+  .experience-button {
+    font-size: 14px;
+  }
+  .training {
+    min-height: 520px;
+  }
+  .content,
+  .ear-content,
+  .race-content,
+  .sight-content {
+    padding: 24px 20px;
+  }
+  .voicing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .voicing-card .diagram {
+    max-width: 110px;
+  }
+  .sight-content h2 {
+    font-size: 26px;
+  }
+  .sight-steps {
+    gap: 8px;
+  }
+  .sight-steps span {
+    padding: 8px;
+  }
+  .sight-diagram svg {
+    width: 164px;
+  }
+  .sight-on .intro {
+    display: none;
+  }
+  .sight-on .training {
+    min-height: 540px;
+  }
+  .intro,
+  .in-exercise .intro,
+  .ear-on .intro,
+  .speed-on .intro,
+  .sight-on .intro {
+    display: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Preserve the progress slot between modes so the card never jumps upward. */
+#progress[hidden] {
+  display: block !important;
+  visibility: hidden;
+}
+
+.sight-on aside .side-section:last-of-type {
+  display: none;
+}
+
+/* Three clear activities. Material and pace are settings, not competing modes. */
+.experience-switch {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  margin-bottom: 20px;
+}
+.experience-switch .experience-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 8px;
+  min-height: 100px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 12px;
+  white-space: normal;
+}
+.experience-switch .experience-button[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--tint);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.experience-button strong {
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 650;
+}
+.experience-button small {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.25;
+  font-weight: 400;
+}
+.activity-icon {
+  height: 24px;
+  width: 28px;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--accent);
+}
+.activity-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.setup-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+.control-caption {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.setup-controls .practice-top {
+  display: block;
+  margin: 0;
+}
+.setup-controls .session-label {
+  display: none;
+}
+.setup-controls .segmented,
+.pace-buttons {
+  display: flex;
+  gap: 4px;
+  border: 0;
+  border-radius: 8px;
+  padding: 4px;
+  background: var(--soft);
+}
+.setup-controls .mode-btn,
+.pace-button {
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+  min-height: 44px;
+  border: 0;
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  text-align: center;
+  white-space: nowrap;
+}
+.setup-controls .mode-btn svg {
+  display: none;
+}
+.pace-button[aria-pressed="true"],
+.setup-controls .mode-btn[aria-selected="true"] {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 1px 3px #0000000d;
+}
+.ear-format {
+  display: none !important;
+}
+.training,
+.sight-on .training {
+  min-height: 0;
+}
+.sight-content {
+  padding: 28px;
+}
+.sight-menu h2 {
+  margin: 12px 0 16px;
+}
+.sight-menu-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0;
+}
+.sight-menu-facts > div {
+  background: var(--bg);
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.sight-menu-facts strong {
+  font-size: 20px;
+  display: block;
+  letter-spacing: -0.5px;
+}
+.sight-menu-facts span {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.sight-menu-note {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 14px 0 0;
+}
+.sight-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.sight-topbar > span {
+  font-size: 14px;
+  color: var(--muted);
+}
+.session-back,
+.session-pause {
+  height: 44px;
+  min-width: 44px;
+  background: var(--soft);
+  border: 0;
+  border-radius: 8px;
+  color: var(--ink);
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.session-pause {
+  font-size: 20px;
+}
+.sight-hud {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+.sight-hud span {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+.sight-hud strong {
+  font-size: 26px;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.6px;
+}
+.sight-hud .urgent {
+  color: var(--red);
+}
+.sight-live h2 {
+  font-size: 30px;
+  margin: 4px 0 8px;
+  text-align: center;
+}
+.sight-prompt {
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  color: var(--accent);
+  text-align: center;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+.sight-position {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+.sight-live .sight-diagram {
+  padding: 12px;
+  margin: 12px 0 8px;
+}
+.sight-live .sight-diagram svg {
+  height: 190px;
+  width: auto;
+}
+.sight-live .diagram-legend {
+  margin: 6px 0 16px;
+}
+.sight-live .sight-status {
+  min-height: 40px;
+  margin: 8px 0;
+  font-size: 15px;
+  text-align: center;
+}
+.sight-live .sight-actions {
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.sight-live .sight-actions .button {
+  font-size: 15px;
+  padding: 10px 8px;
+  min-height: 48px;
+}
+.sight-footnote {
+  font-size: 14px;
+  color: var(--muted);
+  text-align: center;
+  margin: 12px 0 0;
+}
+@media (max-width: 760px) {
+  .shell {
+    padding: 16px !important;
+  }
+  .shell > header {
+    margin-bottom: 20px !important;
+  }
+  .brandname {
+    font-size: 22px;
+  }
+  .brandmark {
+    width: 40px;
+    height: 40px;
+  }
+  .experience-switch {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .experience-switch .experience-button {
+    min-height: 76px;
+    padding: 10px 4px;
+    gap: 6px;
+  }
+  .experience-button strong {
+    font-size: 14px;
+  }
+  .experience-button small {
+    display: none;
+  }
+  .setup-controls {
+    padding: 12px;
+    gap: 12px;
+  }
+  .setup-controls .mode-btn,
+  .pace-button {
+    padding: 6px 3px;
+    min-height: 44px;
+    font-size: 14px;
+  }
+  .setup-controls .mode-btn {
+    gap: 0;
+  }
+  .training,
+  .sight-on .training {
+    min-height: 0;
+  }
+  .content,
+  .ear-content,
+  .race-content,
+  .sight-content {
+    padding: 20px;
+  }
+  .sight-menu h2 {
+    font-size: 26px;
+  }
+  .sight-menu-facts {
+    margin: 16px 0;
+  }
+  .sight-menu-facts > div {
+    padding: 12px;
+  }
+  .sight-menu-facts strong {
+    font-size: 19px;
+  }
+  .sight-playing .shell {
+    padding: 12px !important;
+  }
+  .sight-playing .shell > header,
+  .sight-playing aside,
+  .sight-playing .experience-switch,
+  .sight-playing .setup-controls,
+  .sight-playing #progress,
+  .sight-playing .footer-tip {
+    display: none !important;
+  }
+  .sight-playing .layout {
+    display: block;
+  }
+  .sight-playing .training {
+    margin: 0;
+    box-shadow: none;
+    border-radius: 12px;
+  }
+  .sight-playing .sight-live {
+    padding: 16px;
+  }
+  .sight-topbar {
+    margin-bottom: 14px;
+  }
+  .sight-hud {
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    gap: 8px;
+  }
+  .sight-hud strong {
+    font-size: 24px;
+  }
+  .sight-live h2 {
+    font-size: 27px;
+  }
+  .sight-live .sight-diagram svg {
+    height: 180px;
+  }
+  .sight-live .sight-diagram {
+    margin: 10px 0 6px;
+    padding: 10px;
+  }
+  .sight-live .diagram-legend {
+    font-size: 14px;
+    margin: 6px 0 14px;
+  }
+  .sight-live .sight-actions {
+    gap: 10px;
+  }
+  .sight-live .sight-actions button {
+    font-size: 14px;
+  }
+  .sight-live .sight-status {
+    min-height: 42px;
+  }
+  .sight-topbar > span {
+    font-size: 14px;
+  }
+  .sight-footnote {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+}
+@media (max-width: 359px) {
+  .shell {
+    padding: 12px !important;
+  }
+  .setup-controls {
+    gap: 8px;
+    padding: 10px;
+  }
+  .setup-controls .mode-btn,
+  .pace-button {
+    font-size: 14px;
+    padding: 4px 1px;
+  }
+  .experience-switch {
+    gap: 6px;
+  }
+  .experience-button strong {
+    font-size: 14px;
+  }
+  .sight-live h2 {
+    font-size: 24px;
+  }
+  .sight-topbar > span {
+    max-width: 120px;
+    text-align: center;
+  }
+}
+@media (max-height: 730px) and (max-width: 760px) {
+  .sight-playing .shell {
+    padding: 8px !important;
+  }
+  .sight-playing .sight-live {
+    padding: 12px;
+  }
+  .sight-topbar {
+    margin-bottom: 10px;
+  }
+  .sight-hud {
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
+  .sight-live .sight-diagram svg {
+    height: 144px;
+  }
+  .sight-live h2 {
+    font-size: 24px;
+  }
+  .sight-live .sight-status {
+    min-height: 36px;
+  }
+  .sight-footnote {
+    margin-top: 8px;
+  }
+}
+.unified-learning #replaySound {
+  margin: 20px 0 12px;
+}
+.unified-learning .micro-box {
+  margin: 12px 0;
+  transition:
+    background-color 0.45s,
+    border-color 0.45s;
+}
+.unified-learning .micro-title {
+  min-height: 24px;
+  transition: color 0.4s;
+}
+.learn-answer-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.4s ease;
+  margin: 0;
+}
+.learn-answer-panel.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 20px;
+}
+.learn-answer-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+.learn-answer-inner h3 {
+  font-size: 18px;
+  margin: 0 0 12px;
+}
+.micro-box.matched {
+  border-color: var(--green);
+  background: var(--green-bg);
+}
+@media (max-width: 760px) {
+  .shell {
+    padding-bottom: calc(100px + env(safe-area-inset-bottom)) !important;
+  }
+  .experience-switch,
+  .sight-playing .experience-switch {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 80;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin: 0;
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+    border: 0;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--surface);
+    box-shadow: 0 -4px 20px #00000006;
+  }
+  .experience-switch .experience-button {
+    min-height: 56px;
+    padding: 6px 4px;
+    gap: 4px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: none;
+  }
+  .experience-switch .experience-button[aria-pressed="true"] {
+    background: var(--tint);
+    border: 0;
+    box-shadow: none;
+  }
+  .experience-button strong {
+    font-size: 14px;
+  }
+  .activity-icon {
+    height: 22px;
+    font-size: 24px;
+  }
+  .activity-icon svg {
+    height: 22px;
+    width: 22px;
+  }
+  .sight-playing .shell {
+    padding-bottom: calc(92px + env(safe-area-inset-bottom)) !important;
+  }
+  .sight-playing .training {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .sight-live .sight-diagram svg {
+    height: 156px;
+  }
+  .sight-playing .sight-live {
+    padding: 14px;
+  }
+  .sight-live .sight-status {
+    min-height: 36px;
+  }
+  .sight-live .diagram-legend {
+    margin-bottom: 12px;
+  }
+  .sight-hud {
+    margin-bottom: 12px;
+  }
+  .sight-footnote {
+    margin-top: 10px;
+  }
+}
+@media (max-height: 730px) and (max-width: 760px) {
+  .sight-live .sight-diagram svg {
+    height: 118px;
+  }
+  .sight-playing .sight-live {
+    padding: 12px;
+  }
+  .sight-live .sight-diagram {
+    padding: 8px;
+  }
+  .sight-hud strong {
+    font-size: 22px;
+  }
+  .sight-prompt {
+    margin-bottom: 4px;
+  }
+  .sight-position {
+    margin-bottom: 8px;
+  }
+  .sight-topbar {
+    margin-bottom: 8px;
+  }
+  .sight-footnote {
+    font-size: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .learn-answer-panel,
+  .unified-learning .micro-box {
+    transition: none !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .setup-controls {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .material-control,
+  .pace-control {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+  }
+  .setup-controls .control-caption {
+    margin: 0;
+  }
+  .setup-controls .mode-btn,
+  .pace-button {
+    padding: 6px;
+    white-space: normal;
+  }
+  .experience-switch {
+    border-top: 1px solid var(--line);
+  }
+}
+.header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.header-actions .icon-btn {
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+}
+.header-actions .mic-session-on {
+  background: var(--green-bg);
+  color: var(--green);
+  border-color: var(--green);
+}
+.shell > header {
+  gap: 12px;
+}
+.brand {
+  min-width: 0;
+}
+.brandname {
+  white-space: nowrap;
+}
+@media (max-width: 359px) {
+  .brandname {
+    font-size: 18px;
+  }
+  .brand {
+    gap: 8px;
+  }
+  .brandmark {
+    width: 36px;
+    height: 36px;
+  }
+  .header-actions {
+    gap: 6px;
+  }
+  .shell > header {
+    gap: 8px;
+  }
+}
+@media (max-width: 760px) {
+  .in-exercise:not(.speed-on):not(.ear-on):not(.sight-on) #setupControls,
+  .in-exercise:not(.speed-on):not(.ear-on):not(.sight-on) #progress {
+    display: none !important;
+  }
+  .unified-learning .micro-box {
+    padding: 12px;
+    margin: 12px 0;
+  }
+  .unified-learning .mic-meter {
+    padding: 4px 0;
+    gap: 4px;
+  }
+  .unified-learning .mic-meter-bars {
+    height: 36px;
+  }
+  .unified-learning .mic-meter-bars i {
+    max-height: 32px;
+  }
+  .unified-learning .mic-meter small {
+    display: none;
+  }
+  .unified-learning .micro-title {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .unified-learning .micro-box.matched .micro-copy {
+    display: none;
+  }
+  .unified-learning .micro-copy {
+    font-size: 14px;
+  }
+  .unified-learning #replaySound {
+    margin-top: 16px;
+  }
+  .unified-learning .learn-answer-panel.is-open {
+    margin-top: 16px;
+  }
+}
+@media (max-width: 760px) {
+  .fret-focused .training {
+    height: calc(100dvh - 80px - env(safe-area-inset-bottom));
+    bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+}
+
+.sight-shape-filter {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+  padding: 4px;
+  border-radius: 8px;
+  background: var(--soft);
+}
+.sight-shape-filter button {
+  flex: 1;
+  min-height: 48px;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+.sight-shape-filter button[aria-pressed="true"] {
+  background: var(--card, var(--surface, #fff));
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.success-confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.button-glyph {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  margin-right: 7px;
+  pointer-events: none;
+}
+.button-glyph svg {
+  display: block;
+  flex: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .success-confetti {
+    display: none;
+  }
+}
+@media(max-width:760px){
+ .setup-controls .mode-btn,.setup-controls .pace-button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;white-space:nowrap;line-height:1.15;padding:4px 2px}
+ .setup-controls .button-glyph{margin:0;height:16px}
+ .setup-controls .button-glyph svg{display:block;width:16px;height:16px}
+}
